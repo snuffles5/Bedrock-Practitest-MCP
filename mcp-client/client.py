@@ -88,9 +88,6 @@ class MCPClient:
 
         self.bedrock = session.client('bedrock-runtime')
 
-        # self.bedrock = boto3.client(
-        #     profile_name='AWSReservedSSO_349525586411-PowerUsersHackDay_b2896c9d5a4d1197/denikandil@proofpoint.com',
-        #                             service_name='bedrock-runtime', region_name='us-east-1')
 
     async def connect_to_server(self, server_script_path: str):
         if not server_script_path.endswith(('.py', '.js')):
