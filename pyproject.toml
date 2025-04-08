@@ -1,7 +1,7 @@
 [project]
-name = "weather"
+name = "practitest"
 version = "0.1.0"
-description = "A simple MCP weather server"
+description = "A simple MCP practitest server"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -17,4 +17,4 @@ build-backend = "hatchling.build"
 members = ["mcp-client"]
 
 [project.scripts]
-weather = "weather:main"
+practitest = "practitest:main"

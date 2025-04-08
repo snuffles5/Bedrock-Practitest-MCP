@@ -5,7 +5,7 @@ requires-python = ">=3.10"
 [manifest]
 members = [
     "mcp-client",
-    "weather",
+    "practitest",
 ]
 
 [[package]]
@@ -507,7 +507,7 @@ wheels = [
 ]
 
 [[package]]
-name = "weather"
+name = "practitest"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
