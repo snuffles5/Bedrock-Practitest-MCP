@@ -118,7 +118,19 @@ class MCPClient:
 
     async def process_query(self, query: str) -> str:
         # (1)
-        messages = [Message.user(query).__dict__]
+        pre_prompt = Message.user("""
+You are a helpful assistant. Use tools only when necessary.
+Use the get_instances tool to retrieve a list of test instances from Practitest.
+    It requires no input. Each instance includes basic info like assigned user, 
+    environment, vendor, provider, feature, last run status, and time.
+Use the get_instance_runs tool to retrieve details of a specific test run. 
+    It requires an instance ID as input, which must be obtained from get_instances. 
+    It returns data like run status, creation time, and a Jenkins job link.
+If user asks for runs of a specific instance, 
+    first call get_instances to get the instance ID, then call get_instance_runs with that ID.
+    the get_instances tool returns only 1 last run and not all runs of the instance.
+""")
+        messages = [pre_prompt.__dict__, Message.user(query).__dict__]
         # (2)
         response = await self.session.list_tools()
 
